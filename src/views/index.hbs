@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:lightslategrey;">
+    <div class="container-fluid">
+        <a class="navbar-brand">Quien quiere ser Millonario</a>
+    </div> 
+    <div class="btn btn-secundary btn-lg" id="navbarNav">
+        <form action="/nuevoVotante" method="post">
+            <input style="background-color: lightslategrey;" type="submit" name="participante" value="Votantes">
+        </form>
+        
+    </div>
+  </div>
+</nav>
+
+{{#if errorMesnsaje}}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{errorMesnsaje}}<!--agrego el texto con el string que setee en el controlador-->
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{{/if}}
+<div class="container-fluid" id="container-fluid">
+    
+            <div class="container-form sign-up">
+                    <div class="welcome-back">
+                        <div class="message">
+                            <h2 style="color: white;">Bienvenido</h2>
+                            <p style="color: white;">Si ya tienes una cuenta por favor inicia sesion aqui</p>
+                            <button class="sign-up-btn">Iniciar Sesion</button>
+                        </div>
+                    </div>
+                    <form action="/registrar" method="post"  class="formulario">
+                        <h2 class="create-account" style="color: white;" >Crear una cuenta</h2><br>
+                        <input  class="formularioImput" type="text" name="nombre" placeholder="Nombre">
+                        <input  class="formularioImput" type="text" name="apellido" placeholder="Apellido">
+                        <input  class="formularioImput" type="text" name="direccion" placeholder="Direccion">
+                        <input  class="formularioImput" type="text" name="user" placeholder="Usuario">
+                        <input  class="formularioImput" class="formularioImput" type="email" name="email" placeholder="Email">
+                        <input  class="formularioImput" type="password" name="password" placeholder="Contraseña">
+                        <input  type="submit" value="Registrarse" class = "btn btn-primary mb-3">
+                    </form>
+                </div>
+                <div  class="container-form sign-in">
+                    <form action="/index" method="post" class="formulario">
+                        <h2 class="create-account" style="color: white;">Iniciar Sesion</h2>
+                        <input class="formularioImput" type="text" name="usuario" placeholder="Nombre">
+                        <input class="formularioImput" type="password" name="password" placeholder="Contraseña">
+                        
+                            <input type="submit" value="ingresar" class="btn btn-primary mb-2">
+                        
+                        
+                    </form>
+                    <div class="welcome-back">
+                        <div class="message">
+                            <h2 style="color: white;">Bienvenido de nuevo</h2>
+                            <p style="color: white;">Si aun no tienes una cuenta por favor registrese aqui</p>
+                            <button class="sign-in-btn">Registrarse</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    
+</div>
+<script>
+                const $btnSignIn= document.querySelector('.sign-in-btn'),
+                $btnSignUp = document.querySelector('.sign-up-btn'),  
+                $signUp = document.querySelector('.sign-up'),
+                $signIn  = document.querySelector('.sign-in');
+
+                document.addEventListener('click', e => {
+                    if (e.target === $btnSignIn || e.target === $btnSignUp) {
+                    $signIn.classList.toggle('active');
+                    $signUp.classList.toggle('active')
+                    }
+                });
+</script>
